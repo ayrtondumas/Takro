@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Takro.</title>
+    <link rel="stylesheet" href="/css/desktop.css" media="screen">
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="/js/socket.io.js"></script>
+    <script>
+
+        var socket = io();
+        socket.on("download", function(data){
+          console.log("new file has been downloaded");
+        })
+
+    </script>
+    <script src="/js/client.min.js"></script>
+  </body>
+</html>
