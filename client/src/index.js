@@ -11,6 +11,8 @@ import './styles/main.css'
 import UserLayout   from './layouts/UserLayout/'
 import Home         from './pages/Home/'
 import Profile      from './pages/Profile/'
+import Search      from './pages/Search/'
+import MyProfile      from './pages/MyProfile/'
 import Browse       from './pages/Browse/'
 import Login        from './pages/Login/'
 //----------------------------------------
@@ -39,37 +41,62 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.user);
-    if(!_.isEmpty(this.state.user)) {
-      /* -- utilisateur connecté -- */
-      return (
-        <div className="app">
-          <UserLayout>
-            {this.props.children}
-          </UserLayout>
-        </div>
-      )
-    } else {
-      /* -- utilisateur non connecté -- */
-      return (
-        <Route path="/">
-          <Login/>
-        </Route>
-      )
-    }
+    return noAuth()
   }
 }
 
 ReactDOM.render(
   <Router>
-      <App>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/browse" component={Browse} />
-          <Route path="/profile" component={Profile} />
-        </Switch>
-      </App>
+      <App />
   </Router>
   ,
   document.getElementById('root')
 );
+
+
+function withAuth() {
+  if(!_.isEmpty(this.state.user)) {
+    /* -- utilisateur connecté --*/
+    return (
+      <div className="app">
+        <UserLayout>
+          <Switch>
+            <Route exact path="/"   component={Home} />
+            <Route path="/browse"   component={Browse} />
+            <Route path="/profile"  component={Profile} />
+            <Route path="/login"    component={Login} />
+            <Route path="/me">
+              <MyProfile user={this.state.user}/>
+            </Route>
+          </Switch>
+        </UserLayout>
+      </div>
+    )
+  } else {
+     /* -- utilisateur non connecté -- */
+    return (
+      <Route path="/">
+        <Login/>
+      </Route>
+    )
+  }
+}
+
+function noAuth(){
+  return (
+    <div className="app">
+      <UserLayout>
+        <Switch>
+          <Route exact path="/"   component={Home} />
+          <Route path="/browse"   component={Browse} />
+          <Route path="/profile"  component={Profile} />
+          <Route path="/login"    component={Login} />
+          <Route path="/search"   component={Search} />
+          <Route path="/me">
+            <MyProfile user={null}/>
+          </Route>
+        </Switch>
+      </UserLayout>
+    </div>
+  )
+}
