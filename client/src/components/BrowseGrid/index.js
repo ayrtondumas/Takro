@@ -7,10 +7,9 @@ import BrowseGridItem from './Item'
 class BrowseGrid extends Component {
   render() {
     return (
-      <div>
-        <h2>Browser Grid</h2>
+      <div className="documents-grid">
         {this.props.files.map((file)=>{
-          return <BrowseGridItem key={file.id} file={file}/>
+          return <BrowseGridItem key={file._id} file={file}/>
         })}
       </div>
     )

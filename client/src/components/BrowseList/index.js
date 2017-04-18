@@ -7,10 +7,9 @@ import BrowseListItem from './Item'
 class BrowseList extends Component {
   render() {
     return (
-      <div>
-        <h2>Brwoser List</h2>
+      <div className="documents-list">
         {this.props.files.map((file)=>{
-          return <BrowseListItem key={file.id} file={file}/>
+          return <BrowseListItem key={file._id} file={file}/>
         })}
       </div>
     )

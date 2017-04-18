@@ -1,0 +1,24 @@
+import java.io.*;
+import java.net.*;
+
+class TCPClient {
+	public static void main(String argv[]) throws Exception {
+		System.out.println("Connexion");
+		String sentence;
+		String modifiedSentence;
+		BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
+		Socket clientSocket = new Socket("test.ch", 80);
+		DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+		sentence = "GET / HTTP/1.1\nHost: test.ch\nConnection: keep-alive\n\nUpgrade-Insecure-Requests: 1\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\nAccept-Encoding: gzip, deflate, sdch\nAccept-Language: fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4\n";
+		System.out.println(sentence);
+		outToServer.writeBytes(sentence + '\n');
+		
+		modifiedSentence = inFromServer.readLine();
+		while(modifiedSentence != null){
+			System.out.println("FROM SERVER: " + modifiedSentence);
+			modifiedSentence = inFromServer.readLine();
+		}
+		clientSocket.close();
+	}
+}

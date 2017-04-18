@@ -1,0 +1,16 @@
+{
+  "name": "takroserver",
+  "version": "1.0.0",
+  "description": "Serveur de Takro.",
+  "main": "index.js",
+  "author": "Takro.ch",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-fileupload": "^0.1.2",
+    "mongoose": "^4.9.5",
+    "nodemon": "^1.11.0",
+    "q": "^1.5.0"
+  }
+}

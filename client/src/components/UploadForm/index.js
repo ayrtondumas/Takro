@@ -4,6 +4,11 @@ import React, { Component } from 'react'
 import Tag   from '../Tag/'
 //----------------------------------------
 
+// Services ------------------------------
+import TakroService from '../../services/TakroService'
+//----------------------------------------
+
+
 class UploadForm extends Component {
 
   constructor(props) {
@@ -17,14 +22,21 @@ class UploadForm extends Component {
   uploadFile(e) {
     e.preventDefault()
     this.setState({sendingFile:true})
-    setTimeout(() => {
+    const data = new FormData();
+    data.append('filename', 'Rp_301');
+    data.append('tags', this.state.tags);
+    data.append('document', e.target.document.files[0]);
+
+    TakroService.uploadDocument(data)
+    .then((response) => {
       this.setState({sendingFile:false})
-    }, 2000)
+      console.log(response);
+    })
   }
 
   //test si la clé est un espace, -> ajout d'un tag
   handleKey(e) {
-    if(e.charCode == 32) {
+    if(e.keyCode == 32) {
       var newTag = e.target.value
       this.setState({
         tags: this.state.tags.concat([newTag])
@@ -32,6 +44,20 @@ class UploadForm extends Component {
       e.preventDefault()
       e.target.value=""
     }
+
+    console.log(e.keyCode);
+    if(e.keyCode == 8 && e.target.value == ""){
+      console.log("POP LAST TAG");
+      var tags = this.state.tags
+      tags.pop()
+      this.setState({tags:tags})
+    }
+  }
+
+  //mettre a jour la valeur du label
+  handleFileSelection(e) {
+    var file = e.target.files[0].name;
+    document.getElementById('file-label').innerHTML = file
   }
 
   render() {
@@ -40,12 +66,15 @@ class UploadForm extends Component {
     return (
       <div className={"upload-wrapper " + active} onClick={this.props.hideForm} >
         <form className="upload-form" onClick={(e) => { e.stopPropagation() }} onSubmit={this.uploadFile.bind(this)}>
-          <input type="file"/>
+          <input type="text" name="filename" placeholder="Filename" />
+          <input id="selected-file" name="document" type="file" onChange={this.handleFileSelection}/>
+          <label id="file-label" htmlFor="selected-file">Select file</label>
+
           <div className="tag-editor">
             {this.state.tags.map((label) => {
               return <Tag name={label} />
             })}
-            <input type="text" onKeyPress={this.handleKey.bind(this)}/>
+            <input type="text" onKeyDown={this.handleKey.bind(this)} placeholder="Insert tags"/>
           </div>
           <button>Upload</button>
           {loader}

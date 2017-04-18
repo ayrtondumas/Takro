@@ -3,7 +3,9 @@ import React,{ Component } from 'react'
 class BrowseListItem extends Component {
   render() {
     return (
-      <p>List Item</p>
+      <div className="list-item">
+        <h3>{this.props.document.filename}</h3>
+      </div>
     )
   }
 }

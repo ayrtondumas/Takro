@@ -42,12 +42,23 @@ class TakroService {
     +-------------------------------*/
     isConnected(){
       var deffered = Q.defer()
-
       axios.get(FQDN+"/auth/user_data")
       .then((response) => {
         deffered.resolve(response.data)
       })
+      return deffered.promise
+    }
 
+
+    /*===============================+
+     | Upload d'un fichier           |
+     +-------------------------------*/
+    uploadDocument(data) {
+      var deffered = Q.defer()
+      axios.post(FQDN+"/api/docs", data)
+      .then((response) => {
+        deffered.resolve(response.data)
+      })
       return deffered.promise
     }
 }
