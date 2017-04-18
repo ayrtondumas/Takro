@@ -4,10 +4,6 @@ import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/'
 //----------------------------------------
 
-// Services ------------------------------
-import TakroService from '../../services/TakroService'
-//----------------------------------------
-
 class Login extends Component {
 
   render() {

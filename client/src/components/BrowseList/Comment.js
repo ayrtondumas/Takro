@@ -9,8 +9,9 @@ class Comment extends Component {
     const comment = this.props.comment
     var text = (comment.text.length > 100) ? comment.text.substr(0, 99) + '...' : comment.text;
 
+
     return (
-      <div className="general-comment grid-comment">
+      <div className="general-comment list-comment">
         <div className="author">
           <img src={comment.author} alt="no img"/>
         </div>

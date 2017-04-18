@@ -34,6 +34,9 @@ class Nav extends Component {
             <li>
               <NavLink activeClassName="active" to="/browse">Browse</NavLink>
             </li>
+            <li>
+              <NavLink activeClassName="active" to="/mytakro">My takro</NavLink>
+            </li>
           </ul>
         </div>
         <div className="nav-part">

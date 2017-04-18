@@ -36,7 +36,7 @@ class UploadForm extends Component {
 
   //test si la clé est un espace, -> ajout d'un tag
   handleKey(e) {
-    if(e.keyCode == 32) {
+    if(e.keyCode === 32) {
       var newTag = e.target.value
       this.setState({
         tags: this.state.tags.concat([newTag])
@@ -46,7 +46,7 @@ class UploadForm extends Component {
     }
 
     console.log(e.keyCode);
-    if(e.keyCode == 8 && e.target.value == ""){
+    if(e.keyCode === 8 && e.target.value === ""){
       console.log("POP LAST TAG");
       var tags = this.state.tags
       tags.pop()

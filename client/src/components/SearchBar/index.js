@@ -31,23 +31,23 @@ class SearchBar extends Component {
     const searchUrl = "/search";
 
     // si une recherche est en cours
-    if(this.state.searchText != "") {
+    if(this.state.searchText !== "") {
       redirect = <Redirect to={searchUrl} />
 
     // si la recherche est vide
     } else {
 
       // et que l'url de base est différent du path actuel
-      if( this.state.lastUrl != window.location.pathname){
+      if( this.state.lastUrl !== window.location.pathname){
         console.log(window.location.pathname);
 
         // après la recherche, rediriger vers l'ancienne page
-        if(window.location.pathname == searchUrl) {
+        if(window.location.pathname === searchUrl) {
           secondRedirect = <Redirect to={this.state.lastUrl} />
 
         // une simple navigation
         } else {
-          this.setState({lastUrl:window.location.pathname})
+          //this.setState({lastUrl:window.location.pathname})
         }
       }
     }

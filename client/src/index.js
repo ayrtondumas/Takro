@@ -11,10 +11,11 @@ import './styles/main.css'
 import UserLayout   from './layouts/UserLayout/'
 import Home         from './pages/Home/'
 import Profile      from './pages/Profile/'
-import Search      from './pages/Search/'
-import MyProfile      from './pages/MyProfile/'
+import Search       from './pages/Search/'
+import MyProfile    from './pages/MyProfile/'
 import Browse       from './pages/Browse/'
 import Login        from './pages/Login/'
+import MyTakro      from './pages/MyTakro/'
 //----------------------------------------
 
 // Services ------------------------------
@@ -32,12 +33,12 @@ class App extends Component {
   }
 
   componentWillMount() {
-    TakroService.isConnected()
+    /*TakroService.isConnected()
     .then((user) => {
       this.setState({
         user: user
       })
-    })
+    })*/
   }
 
   render() {
@@ -64,6 +65,7 @@ function withAuth() {
             <Route exact path="/"   component={Home} />
             <Route path="/browse"   component={Browse} />
             <Route path="/profile"  component={Profile} />
+            <Route path="/mytakro"  component={MyTakro} />
             <Route path="/login"    component={Login} />
             <Route path="/me">
               <MyProfile user={this.state.user}/>
@@ -91,6 +93,7 @@ function noAuth(){
           <Route path="/browse"   component={Browse} />
           <Route path="/profile"  component={Profile} />
           <Route path="/login"    component={Login} />
+          <Route path="/mytakro"  component={MyTakro} />
           <Route path="/search"   component={Search} />
           <Route path="/me">
             <MyProfile user={null}/>

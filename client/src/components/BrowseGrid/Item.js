@@ -12,7 +12,14 @@ class BrowseGridItem extends Component {
     file.comments = [
       {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
       {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "this is a comment"},
+      {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "this is a comment"},
+      {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
+      {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "this is a comment"},
       {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "this is a comment"}
+    ,      {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
+          {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "this is a comment"},
+          {"author": "http://www.wimpykid.com/wp-content/uploads/2012/12/about_the_author.jpg", "text": "this is a comment"}
+
     ]
 
     return (
@@ -28,7 +35,7 @@ class BrowseGridItem extends Component {
           <div className="middle">
             <div className="profile">
               <div className="image" >
-                <img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg"/>
+                <img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg" alt="no img"/>
               </div>
               <div className="notes">
                 <div className="note">

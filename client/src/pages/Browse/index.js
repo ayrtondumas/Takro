@@ -16,7 +16,7 @@ class Browse extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      displayGrid: true,
+      displayGrid: false,
       files : []
     }
   }
@@ -41,7 +41,7 @@ class Browse extends Component {
 
   render() {
     return (
-      <div className="page">
+      <div className="page browse-page">
         <BrowseHeader eventEmitter={this.eventEmitter} displayGrid={this.state.displayGrid} />
         {(this.state.displayGrid ? <BrowseGrid files={this.state.files} /> : <BrowseList files={this.state.files} /> )}
       </div>
