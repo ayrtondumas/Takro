@@ -323,7 +323,7 @@
        justify-content: center;
 
        .grid-item {
-         $item-min-width: 300px;
+         $item-min-width: 400px;
          height: 1.3*$item-min-width;
          min-width: $item-min-width;
          background: $light-grey;
@@ -334,15 +334,17 @@
 
          .header {
            color: $light-grey;
-           font-size: 10px;
+           font-size: 12px;
            background: $dark-grey;
            padding: 5px;
+           flex: 1;
 
            .top {
              display: flex;
              justify-content: space-between;
              flex-direction: row;
              align-items: center;
+             font-size: 10px;
 
              .dates {
                text-align: left;
@@ -353,7 +355,7 @@
              }
 
              .icon {
-               font-size: 16px;
+               font-size: 24px;
                cursor: pointer;
                &:hover {
                  color: $secondary-color;
@@ -366,6 +368,7 @@
              display: flex;
              flex-direction: row;
              align-items: center;
+             font-size: 12px;
 
              .profile {
                margin: 0px 15px;
@@ -389,6 +392,25 @@
 
                  .note {
                    margin: 0 5px;
+                   display: flex;
+                   flex-direction: row;
+                   align-items: center;
+
+                   p {
+                     margin: 0px 2px;
+                   }
+
+                   .up {
+                     background: $secondary-color;
+                     padding: 2px;
+                     border-radius: 50%;
+                   }
+
+                   .down {
+                     background: $red;
+                     padding: 2px;
+                     border-radius: 50%;
+                   }
                  }
                }
              }
@@ -397,6 +419,7 @@
                display: flex;
                flex-direction: column;
                align-items:center;
+               flex: 1;
 
                .tag {
                  text-transform: lowercase;
@@ -404,10 +427,14 @@
                  margin: 0px 2px;
                }
 
+               .author {
+                 text-transform: capitalize;
+               }
+
                h3 {
                  margin: 3px 0px;
-                 font-weight: 400;
-                 font-size: 16px;
+                 font-weight: 700;
+                 font-size: 24px;
                }
              }
            }
@@ -420,15 +447,86 @@
                right: 25px;
                background: $secondary-color;
                border-radius: 50%;
-               font-size: 24px;
+               font-size: 18px;
                padding: 5px;
-               bottom: -22px;
+               bottom: -40px;
+               cursor: pointer;
 
              }
              .ext {
                position: absolute;
                right: 0px;
-               bottom: 0px;
+               bottom: -25px;
+             }
+           }
+         }
+
+         .content {
+           display: flex;
+           flex-direction: column;
+           flex: 2;
+
+           .grid-comment {
+             display: flex;
+             align-items: center;
+             flex-direction: row-reverse;
+             font-size: 12px;
+             background: #e5e5e5;
+             padding: 5px;
+             text-align: center;
+             justify-content: space-between;
+
+             .author {
+               margin: 10px;
+               height: 30px;
+               width: 30px;
+               overflow: hidden;
+               border-radius: 50%;
+
+               img {
+                 min-width: 100%;
+                 height: 100%;
+               }
+             }
+
+             .comment {
+               text-align: left;
+               font-size: 10px;
+               flex:1;
+               max-width: $item-min-width - 200;
+             }
+
+             .infos, a  {
+               font-size: 10px;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+
+             }
+
+             .icon {
+               font-size: 16px;
+               cursor: pointer;
+               color: $dark-grey;
+
+                &.selected {
+                  color: $secondary-color;
+                }
+             }
+
+
+
+             .more {
+               text-align: left;
+             }
+
+             &:nth-child(2n+1) {
+               flex-direction: row;
+               background: $light-grey;
+
+               .more {
+                 text-align: right;
+               }
              }
            }
          }

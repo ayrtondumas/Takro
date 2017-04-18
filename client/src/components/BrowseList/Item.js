@@ -4,7 +4,7 @@ class BrowseListItem extends Component {
   render() {
     return (
       <div className="list-item">
-        <h3>{this.props.document.filename}</h3>
+        <h3>{this.props.file.filename}</h3>
       </div>
     )
   }

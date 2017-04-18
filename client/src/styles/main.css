@@ -223,8 +223,8 @@ input[type=button], button {
   flex-wrap: wrap;
   justify-content: center; }
   .documents-grid .grid-item {
-    height: 390px;
-    min-width: 300px;
+    height: 520px;
+    min-width: 400px;
     background: #f5f5f5;
     margin: 20px;
     display: flex;
@@ -232,20 +232,22 @@ input[type=button], button {
     border-bottom: 10px solid #2783aa; }
     .documents-grid .grid-item .header {
       color: #f5f5f5;
-      font-size: 10px;
+      font-size: 12px;
       background: #343434;
-      padding: 5px; }
+      padding: 5px;
+      flex: 1; }
       .documents-grid .grid-item .header .top {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        align-items: center; }
+        align-items: center;
+        font-size: 10px; }
         .documents-grid .grid-item .header .top .dates {
           text-align: left; }
           .documents-grid .grid-item .header .top .dates p {
             margin: 0; }
         .documents-grid .grid-item .header .top .icon {
-          font-size: 16px;
+          font-size: 24px;
           cursor: pointer; }
           .documents-grid .grid-item .header .top .icon:hover {
             color: #2783aa; }
@@ -253,7 +255,8 @@ input[type=button], button {
         margin: 20px 0px;
         display: flex;
         flex-direction: row;
-        align-items: center; }
+        align-items: center;
+        font-size: 12px; }
         .documents-grid .grid-item .header .middle .profile {
           margin: 0px 15px;
           display: flex;
@@ -269,19 +272,35 @@ input[type=button], button {
             display: flex;
             flex-direction: row; }
             .documents-grid .grid-item .header .middle .profile .notes .note {
-              margin: 0 5px; }
+              margin: 0 5px;
+              display: flex;
+              flex-direction: row;
+              align-items: center; }
+              .documents-grid .grid-item .header .middle .profile .notes .note p {
+                margin: 0px 2px; }
+              .documents-grid .grid-item .header .middle .profile .notes .note .up {
+                background: #2783aa;
+                padding: 2px;
+                border-radius: 50%; }
+              .documents-grid .grid-item .header .middle .profile .notes .note .down {
+                background: #cc6666;
+                padding: 2px;
+                border-radius: 50%; }
         .documents-grid .grid-item .header .middle .document {
           display: flex;
           flex-direction: column;
-          align-items: center; }
+          align-items: center;
+          flex: 1; }
           .documents-grid .grid-item .header .middle .document .tag {
             text-transform: lowercase;
             font-size: 12px;
             margin: 0px 2px; }
+          .documents-grid .grid-item .header .middle .document .author {
+            text-transform: capitalize; }
           .documents-grid .grid-item .header .middle .document h3 {
             margin: 3px 0px;
-            font-weight: 400;
-            font-size: 16px; }
+            font-weight: 700;
+            font-size: 24px; }
       .documents-grid .grid-item .header .bottom {
         position: relative; }
         .documents-grid .grid-item .header .bottom .download-link {
@@ -289,13 +308,59 @@ input[type=button], button {
           right: 25px;
           background: #2783aa;
           border-radius: 50%;
-          font-size: 24px;
+          font-size: 18px;
           padding: 5px;
-          bottom: -22px; }
+          bottom: -40px;
+          cursor: pointer; }
         .documents-grid .grid-item .header .bottom .ext {
           position: absolute;
           right: 0px;
-          bottom: 0px; }
+          bottom: -25px; }
+    .documents-grid .grid-item .content {
+      display: flex;
+      flex-direction: column;
+      flex: 2; }
+      .documents-grid .grid-item .content .grid-comment {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        font-size: 12px;
+        background: #e5e5e5;
+        padding: 5px;
+        text-align: center;
+        justify-content: space-between; }
+        .documents-grid .grid-item .content .grid-comment .author {
+          margin: 10px;
+          height: 30px;
+          width: 30px;
+          overflow: hidden;
+          border-radius: 50%; }
+          .documents-grid .grid-item .content .grid-comment .author img {
+            min-width: 100%;
+            height: 100%; }
+        .documents-grid .grid-item .content .grid-comment .comment {
+          text-align: left;
+          font-size: 10px;
+          flex: 1;
+          max-width: 200px; }
+        .documents-grid .grid-item .content .grid-comment .infos, .documents-grid .grid-item .content .grid-comment a {
+          font-size: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center; }
+        .documents-grid .grid-item .content .grid-comment .icon {
+          font-size: 16px;
+          cursor: pointer;
+          color: #343434; }
+          .documents-grid .grid-item .content .grid-comment .icon.selected {
+            color: #2783aa; }
+        .documents-grid .grid-item .content .grid-comment .more {
+          text-align: left; }
+        .documents-grid .grid-item .content .grid-comment:nth-child(2n+1) {
+          flex-direction: row;
+          background: #f5f5f5; }
+          .documents-grid .grid-item .content .grid-comment:nth-child(2n+1) .more {
+            text-align: right; }
 
 /*=======================================================================================*
  |  Documents List |

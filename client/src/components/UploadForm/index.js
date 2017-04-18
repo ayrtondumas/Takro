@@ -23,7 +23,7 @@ class UploadForm extends Component {
     e.preventDefault()
     this.setState({sendingFile:true})
     const data = new FormData();
-    data.append('filename', 'Rp_301');
+    data.append('filename', e.target.filename.value);
     data.append('tags', this.state.tags);
     data.append('document', e.target.document.files[0]);
 
